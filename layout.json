@@ -1,0 +1,211 @@
+{
+   "logo":"/third_party/cn-hubspot.png",
+   "integDispName":"HubSpot",
+   "subStepList":[
+      {
+         "stepName":"Connect",
+         "stepId":"connect",
+         "apiEndPoint": {
+            "type": "GET",
+            "headers": {
+               "Elements-Formula-Instance-Id": "393570"
+            },
+            "apiUrl": "https://staging.cloud-elements.com/elements/api-v2/hubspot/connect",
+            "input": {
+              "siteDomain": "localcb.in:9443",
+              "type": "hubspot",
+              "chargebeeElement": "14167",
+              "thirdPartyElement": "18943"
+              
+            }
+         }
+      },
+      {
+         "stepName":"Sync Rules for Contacts",
+         "stepId":"step_1",
+         "apiEndPoint": {
+            "type":"GET",
+            "headers": {
+                    "Elements-Formula-Instance-Id": "393712"
+            },
+            "apiUrl":"https://staging.cloud-elements.com/elements/api-v2/hubspot/syncRulesContactsSetup",
+            "input": {
+              "siteDomain": "localcb.in:9443",
+              "integrationName": "hubspot"
+            }
+         },
+           "backStepApiEndPoint": {
+            "type":"GET",
+            "apiUrl":"https://staging.cloud-elements.com/elements/api-v2/hubspot/syncRulesContactsSetup",
+             "headers": {
+                    "Elements-Formula-Instance-Id": "393712"
+            },
+             "input": {
+              "siteDomain": "localcb.in:9443",
+              "integrationName": "hubspot"
+            }
+         }
+      },
+      {
+         "stepName":"Sync Rules for Deals",
+         "stepId":"step_2",
+         "apiEndPoint": {
+            "type":"GET",
+            "headers": {
+                    "Elements-Formula-Instance-Id": "394654"
+            },
+            "apiUrl":"https://staging.cloud-elements.com/elements/api-v2/hubspot/syncRulesDealsSetup",
+            "input": {
+              "type": "hubspot"
+              
+            }
+         },
+         "backStepApiEndPoint": {
+            "type":"GET",
+            "apiUrl":"https://staging.cloud-elements.com/elements/api-v2/hubspot/syncRulesContactsSetup",
+             "headers": {
+                    "Elements-Formula-Instance-Id": "393712"
+            },
+             "input": {
+              "siteDomain": "localcb.in:9443",
+              "integrationName": "hubspot"
+            }
+         }
+      },
+      {
+         "stepName":"Sync Rules for Fields",
+         "stepId":"step_5",
+         "apiEndPoint": {
+            "type":"GET",
+            "headers": {
+                    "Elements-Formula-Instance-Id": "395200"
+            },
+            "apiUrl":"https://staging.cloud-elements.com/elements/api-v2/hubspot/fields",
+            "input": {
+              "type": "hubspot"
+              
+            }
+         },
+           "backStepApiEndPoint": {
+            "type":"GET",
+            "apiUrl":"https://staging.cloud-elements.com/elements/api-v2/hubspot/syncRulesContactsSetup",
+             "headers": {
+                    "Elements-Formula-Instance-Id": "393712"
+            },
+             "input": {
+              "siteDomain": "localcb.in:9443",
+              "integrationName": "hubspot"
+            }
+         }
+      }, 
+      {
+         "stepName":"Sync Rules for Orders",
+         "stepId":"step_6",
+         "apiEndPoint": {
+            "type":"GET",
+            "headers": {
+                    "Elements-Formula-Instance-Id": "395209"
+            },
+            "apiUrl":"https://staging.cloud-elements.com/elements/api-v2/hubspot/orders"
+         },
+               "backStepApiEndPoint": {
+            "type":"GET",
+            "apiUrl":"https://staging.cloud-elements.com/elements/api-v2/hubspot/syncRulesContactsSetup",
+             "headers": {
+                    "Elements-Formula-Instance-Id": "393712"
+            },
+             "input": {
+              "siteDomain": "localcb.in:9443",
+              "integrationName": "hubspot"
+            }
+         }
+      },
+      {
+         "stepName":"Data Validation",
+         "stepId":"step_7",
+         "apiEndPoint": {
+            "type":"GET",
+             "headers": {
+                        "Elements-Formula-Instance-Id": "395214"
+                        },
+             "apiUrl": "https://staging.cloud-elements.com/elements/api-v2/validate",
+            "input": {
+              "type": "hubspot",
+              "retry":"false"
+
+            }                     
+         },
+           "backStepApiEndPoint": {
+            "type":"GET",
+            "apiUrl":"https://staging.cloud-elements.com/elements/api-v2/hubspot/syncRulesContactsSetup",
+             "headers": {
+                    "Elements-Formula-Instance-Id": "393712"
+            },
+             "input": {
+              "siteDomain": "localcb.in:9443",
+              "integrationName": "hubspot"
+            }
+         }
+      },
+      {
+         "stepName":"Run Initial Sync",
+         "stepId":"step_8",
+         "apiEndPoint": {
+            "type":"GET",
+            "headers": {
+               "Elements-Formula-Instance-Id": "393818"
+            },
+            "apiUrl":"https://staging.cloud-elements.com/elements/api-v2/initialsync/setup",
+            "input": {
+              "siteDomain": "localcb.in:9443",
+              "type": "hubspot",
+              "action": "default",
+              "initialSync": "true"
+            }
+         }  
+      },
+      {
+         "stepName":"Final step",
+         "stepId":"completed",
+         "apiEndPoint": {
+            "type":"GET",
+            "headers": {
+               "Elements-Formula-Instance-Id": "395810"
+            },
+            "apiUrl":"https://staging.cloud-elements.com/elements/api-v2/hubspot/syncProcessingCard",
+            "input": {
+              "siteDomain": "localcb.in:9443",
+              "type": "hubspot",
+               "action": "default"
+            }
+         },
+         "fullSyncApiEndPoint": {
+             "type":"GET",
+             "apiUrl":"https://staging.cloud-elements.com/elements/api-v2/hubspot/fullSyncRun",
+             "headers": {
+                 "Elements-Formula-Instance-Id": "395835"
+             },
+             "input": {
+                 "integrationName": "hubspot",
+                 "siteDomain": "localcb.in:9443"
+             }
+          },
+          "editConfig": {
+                "title": "Manage how Chargebee syncs data with Hubspot",
+                "display": "Manage Sync Rules",
+                "apiEndPoint": {
+                    "type": "GET",
+                    "apiUrl": "https://staging.cloud-elements.com/elements/api-v2/hubspot/manageSyncRules",
+                    "headers": {
+                        "Elements-Formula-Instance-Id": "395803"
+                    },
+                    "input": {
+                        "type": "hubspot",
+                        "siteDomain": "localcb.in:9443",
+                        "op": "edit"
+                    }
+                }
+            }
+      }
+   ]
+}
