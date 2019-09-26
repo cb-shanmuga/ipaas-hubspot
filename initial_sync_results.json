@@ -1,0 +1,78 @@
+{
+ "cards": [
+   {
+     "card": {
+       "heading": " 1 of 4 records synced successfully",
+       "icon": "SUCCESS",
+       "listContent": [
+         "Customer id <a href='https://priya-test.predev3.in/admin-console/customers/1mklhqVRR67JRh3Eb' target='blank'>1mklhqVRR67JRh3Eb</a> is synced as <a href='https://app.hubspot.com/contacts/6250903/contact/17951' target='blank'>17951</a> in HubSpot\n"
+       ],
+       "type": "ACTION"
+     },
+     "id": "check2",
+     "isCardDone": "true"
+   },
+   {
+     "card": {
+       "heading": " 3 of 4 records could not be synced",
+       "icon": "ERROR",
+       "listContent": [
+         "<a href='https://priya-test.predev3.in/admin-console/customers/1mklhf3RRlSSZYRG' target='blank'>1mklhf3RRlSSZYRG</a> Email Address Not Available",
+         "<a href='https://priya-test.predev3.in/admin-console/customers/1mklhf3RRlVZDpU4' target='blank'>1mklhf3RRlVZDpU4</a> Email Address Not Available",
+         "<a href='https://priya-test.predev3.in/admin-console/customers/1mklhhDRZ7JyIh7l' target='blank'>1mklhhDRZ7JyIh7l</a> Email Address Not Available"
+       ],
+       "subHeading": "You could fix these errors and retry sync. Or you could go ahead and sync all records. We recommend that you fix these errors and retry sync.",
+       "type": "ACTION"
+     },
+     "id": "check3",
+     "isCardDone": "true"
+   }
+ ],
+ "proceed": {
+   "display": "Sync all Records",
+   "icon": "ARROW",
+   "id": "proceed",
+   "popUp": {
+     "apiEndPoint": {
+       "apiUrl": "https://staging.cloud-elements.com/elements/api-v2/hubspot/syncProcessingCard",
+       "headers": {
+         "Elements-Formula-Instance-Id": "399319"
+       },
+       "input": {
+         "action": "run",
+         "type": "hubspot"
+       },
+       "type": "GET"
+     },
+     "cancelButton": "Dismiss",
+     "description": "All your customer and subscription data will be synced. You can fix the errors, if any, sync the data again, later.",
+     "submitButton": "Yes, go ahead",
+     "title": "Are you sure you want to ignore the errors and sync all records?",
+     "type": "SIMPLE",
+     "usecase": "DANGER"
+   },
+   "type": "POP_UP"
+ },
+ "retry": {
+   "buttonLook": "FILLED",
+   "display": "Retry Initial Sync",
+   "icon": "ARROW",
+   "id": "retry",
+   "request": {
+     "apiEndPoint": {
+       "apiUrl": "https://staging.cloud-elements.com/elements/api-v2/initialsync/setup",
+       "headers": {
+         "Elements-Formula-Instance-Id": "399318"
+       },
+       "input": {
+         "action": "run",
+         "retry": "true",
+         "type": "hubspot"
+       },
+       "type": "GET"
+     },
+     "type": "ON_CLICK_DEFAULT_ACTION"
+   },
+   "type": "DIRECT_LINK"
+ }
+}
