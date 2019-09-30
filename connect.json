@@ -7,7 +7,7 @@
         "popUp": {
             "advance": "true",
             "apiEndPoint": {
-                "apiUrl": "https://staging.cloud-elements.com/elements/api-v2/hubspot/init",
+                "apiUrl": "https://raw.githubusercontent.com/cb-shanmugar/ipaas-hubspot/master/connect.json",
                 "headers": {
                     "Elements-Formula-Instance-Id": "393701"
                 },
