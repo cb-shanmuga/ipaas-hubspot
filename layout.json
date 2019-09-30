@@ -28,7 +28,7 @@
             "headers": {
                     "Elements-Formula-Instance-Id": "393712"
             },
-            "apiUrl":"https://staging.cloud-elements.com/elements/api-v2/hubspot/syncRulesContactsSetup",
+            "apiUrl":"https://raw.githubusercontent.com/cb-shanmugar/ipaas-hubspot/master/sync_rules_contacts.json",
             "input": {
               "siteDomain": "localcb.in:9443",
               "integrationName": "hubspot"
@@ -36,7 +36,7 @@
          },
            "backStepApiEndPoint": {
             "type":"GET",
-            "apiUrl":"https://staging.cloud-elements.com/elements/api-v2/hubspot/syncRulesContactsSetup",
+            "apiUrl":"https://raw.githubusercontent.com/cb-shanmugar/ipaas-hubspot/master/sync_rules_contacts.json",
              "headers": {
                     "Elements-Formula-Instance-Id": "393712"
             },
@@ -54,7 +54,7 @@
             "headers": {
                     "Elements-Formula-Instance-Id": "394654"
             },
-            "apiUrl":"https://staging.cloud-elements.com/elements/api-v2/hubspot/syncRulesDealsSetup",
+            "apiUrl":"https://raw.githubusercontent.com/cb-shanmugar/ipaas-hubspot/master/sync_rules_deals.json",
             "input": {
               "type": "hubspot"
               
@@ -62,7 +62,7 @@
          },
          "backStepApiEndPoint": {
             "type":"GET",
-            "apiUrl":"https://staging.cloud-elements.com/elements/api-v2/hubspot/syncRulesContactsSetup",
+            "apiUrl":"https://raw.githubusercontent.com/cb-shanmugar/ipaas-hubspot/master/sync_rules_contacts.json",
              "headers": {
                     "Elements-Formula-Instance-Id": "393712"
             },
@@ -80,7 +80,7 @@
             "headers": {
                     "Elements-Formula-Instance-Id": "395200"
             },
-            "apiUrl":"https://staging.cloud-elements.com/elements/api-v2/hubspot/fields",
+            "apiUrl":"https://raw.githubusercontent.com/cb-shanmugar/ipaas-hubspot/master/sync_fields.json",
             "input": {
               "type": "hubspot"
               
