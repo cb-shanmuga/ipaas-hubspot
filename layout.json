@@ -33,17 +33,6 @@
               "siteDomain": "localcb.in:9443",
               "integrationName": "hubspot"
             }
-         },
-           "backStepApiEndPoint": {
-            "type":"GET",
-            "apiUrl":"https://raw.githubusercontent.com/cb-shanmugar/ipaas-hubspot/master/sync_rules_contacts.json",
-             "headers": {
-                    "Elements-Formula-Instance-Id": "393712"
-            },
-             "input": {
-              "siteDomain": "localcb.in:9443",
-              "integrationName": "hubspot"
-            }
          }
       },
       {
@@ -58,17 +47,6 @@
             "input": {
               "type": "hubspot"
               
-            }
-         },
-         "backStepApiEndPoint": {
-            "type":"GET",
-            "apiUrl":"https://raw.githubusercontent.com/cb-shanmugar/ipaas-hubspot/master/sync_rules_contacts.json",
-             "headers": {
-                    "Elements-Formula-Instance-Id": "393712"
-            },
-             "input": {
-              "siteDomain": "localcb.in:9443",
-              "integrationName": "hubspot"
             }
          }
       },
