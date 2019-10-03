@@ -101,7 +101,6 @@
       {
          "stepName":"Sync Rules for Orders",
          "stepId":"step_6",
-          "stepNumber":5,
          "apiEndPoint": {
             "type":"GET",
             "headers": {
