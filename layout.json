@@ -5,7 +5,6 @@
       {
          "stepName":"Connect",
          "stepId":"connect",
-         "stepNumber":1,
          "apiEndPoint": {
             "type": "GET",
             "headers": {
@@ -24,7 +23,6 @@
       {
          "stepName":"Sync Rules for Contacts",
          "stepId":"step_1",
-         "stepNumber":2,
          "apiEndPoint": {
             "type":"GET",
             "headers": {
@@ -51,7 +49,6 @@
       {
          "stepName":"Sync Rules for Deals",
          "stepId":"step_2",
-         "stepNumber":3,
          "apiEndPoint": {
             "type":"GET",
             "headers": {
@@ -78,7 +75,6 @@
       {
          "stepName":"Sync Rules for Fields",
          "stepId":"step_5",
-         "stepNumber":4,
          "apiEndPoint": {
             "type":"GET",
             "headers": {
@@ -128,7 +124,6 @@
       {
          "stepName":"Data Validation",
          "stepId":"step_7",
-          "stepNumber":6,
          "apiEndPoint": {
             "type":"GET",
              "headers": {
@@ -156,7 +151,6 @@
       {
          "stepName":"Run Initial Sync",
           "stepId":"step_8",
-         "stepNumber":7,
          "apiEndPoint": {
             "type":"GET",
             "headers": {
@@ -174,7 +168,6 @@
       {
          "stepName":"Final step",
          "stepId":"completed",
-         "stepNumber":8,
          "apiEndPoint": {
             "type":"GET",
             "headers": {
