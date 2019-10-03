@@ -149,7 +149,7 @@
       },
       {
          "stepName":"Run Initial Sync",
-         "stepNumber":7,
+         "stepId":"step_8",
          "apiEndPoint": {
             "type":"GET",
             "headers": {
