@@ -172,7 +172,7 @@
             "headers": {
                "Elements-Formula-Instance-Id": "395810"
             },
-            "apiUrl":"https://staging.cloud-elements.com/elements/api-v2/hubspot/syncProcessingCard",
+            "apiUrl":"https://raw.githubusercontent.com/cb-shanmugar/ipaas-hubspot/master/sync_process.json",
             "input": {
               "siteDomain": "localcb.in:9443",
               "type": "hubspot",
@@ -195,9 +195,9 @@
                 "display": "Manage Sync Rules",
                 "apiEndPoint": {
                     "type": "GET",
-                    "apiUrl": "https://staging.cloud-elements.com/elements/api-v2/hubspot/manageSyncRules",
+                    "apiUrl": "https://raw.githubusercontent.com/cb-shanmugar/ipaas-hubspot/master/manage_sync_rule.json",
                     "headers": {
-                        "Elements-Formula-Instance-Id": "395803"
+                        "Elements-Formula-Instance-Id": "399324"
                     },
                     "input": {
                         "type": "hubspot",
