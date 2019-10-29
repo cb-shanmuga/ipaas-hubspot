@@ -1,0 +1,81 @@
+{
+  "cloudElements": {
+    "chargebee": {
+      "element": "19681",
+      "instance": 196052
+    },
+    "formulas": {
+      "formula_FullSync": {
+        "firstSync": 1572351259,
+        "id": 29214,
+        "instance": 406958
+      },
+      "formula_Validate": {
+        "execution": {
+          "id": 88839384,
+          "result": {
+            "error": true,
+            "message": [
+              "Email address is unavailable for 3 customers in Chargebee"
+            ]
+          },
+          "status": "DONE"
+        },
+        "id": 29256,
+        "instance": 406957,
+        "validataion_log_id": "6315"
+      }
+    },
+    "hubSpotStages": {
+      "stageOptions": {
+        "appointmentscheduled": "Appointment Scheduled",
+        "closedlost": "Closed Lost",
+        "closedwon": "Closed Won",
+        "contractsent": "Contract Sent",
+        "decisionmakerboughtin": "Decision Maker Bought-In",
+        "presentationscheduled": "Presentation Scheduled",
+        "qualifiedtobuy": "Qualified To Buy"
+      }
+    },
+    "setup": {
+      "chargebeeElement": "19681",
+      "clientId": "3d331240-f57d-4b29-a369-3fc34ce5e561",
+      "clientSecret": "7ad2b531-6b87-41ce-af9a-ad5d1a566d89",
+      "redirectUrl": "https://app.integrations.predev3.in/integrations/hubspot/oauth_callback?",
+      "scope": "contacts%20oauth%20tickets",
+      "thirdPartyElement": "19685"
+    },
+    "syncRuleForOrders": {
+      "sync": "false"
+    },
+    "syncRulesContacts": {
+      "CustomersToSync": "All_Customers",
+      "HubSpotContactMatch": "Update_empty_Hubspot_fields",
+      "HubSpotContactNoMatch": "Create_contact",
+      "LifecycleStage": {
+        "ActiveSubscription": "",
+        "CanceledSubscription": "",
+        "NoSubscription": "",
+        "TrialSubscription": ""
+      }
+    },
+    "syncRulesDeals": {
+      "SubCreatedOption": "Create_A_Deal",
+      "allowCreateDealInTrial": "false",
+      "stage_subCreated": "closedwon",
+      "stage_subInTrial": "closedwon"
+    },
+    "thirdParty": {
+      "accessToken": "CNLR4MXhLRIDAQEBGObg-QIg7dWFBCj5mwwyGQB5r8tqyU_gF2rmR9yL5k6ZNN6KyPz0GW86DwAKAkEAAAyAwgcIAAAAAUIZAHmvy2pUkfyvmegOjTiF8rho4_xmjwAxRw",
+      "clientId": "3d331240-f57d-4b29-a369-3fc34ce5e561",
+      "clientSecret": "7ad2b531-6b87-41ce-af9a-ad5d1a566d89",
+      "element": "19685",
+      "expiresIn": 1572370953,
+      "instance": 196053,
+      "portalId": 6189158,
+      "refreshToken": "f3068e39-00b4-4f64-8dd9-f03ae66f6512"
+    }
+  },
+  "current_step_number": 8,
+  "new_sub_step": "completed"
+}
