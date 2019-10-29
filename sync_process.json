@@ -1,18 +1,61 @@
 {
-   "cards":[
-      {
-         "card": {
-            "type" : "PROCESSING",
-            "processingText": "Syncing first 10 customers and their subscriptions",
-            "request" : {
-               "type":"DOC_READY_GET_CARD",
-               "apiEndPoint":{
-                  "apiUrl":"https://raw.githubusercontent.com/shamim-keyvalue/ipass_pipedrive/master/sync_result.json",
-                  "type":"GET"
-               }
-            }
-         },
-         "id" : "check2",
-      } 
-   ]
+    "icon": "/third_party/cn-xero.png",
+    "overview": [
+        {
+            "card": {
+                "processingText": " Syncing all customers and their subscriptions. This can take a while depending on the number of records to sync. You may navigate away from this page and come back later.",
+                "request": {
+                    "apiEndPoint": {
+                        "apiUrl": "https://staging.cloud-elements.com/elements/api-v2/sync/run",
+                        "headers": {
+                            "Elements-Formula-Instance-Id": "399322"
+                        },
+                        "input": {
+                            "syncNow": false,
+                            "type": "hubspot"
+                        },
+                        "type": "GET"
+                    },
+                    "type": "DOC_READY_GET_CARD"
+                },
+                "type": "PROCESSING"
+            },
+            "id": "overview",
+            "isCardDone": "false"
+        }
+    ],
+    "unlink": {
+        "popUp": {
+            "cancelButton": "Dismiss",
+            "submitButton": "Unlink",
+            "apiEndPoint": {
+                "headers": {
+                    "Elements-Formula-Instance-Id": "399321"
+                },
+                "input": {
+                    "type": "hubspot"
+                },
+                "apiUrl": "https://staging.cloud-elements.com/elements/api-v2/unlink",
+                "type": "GET"
+            },
+            "description": "This will remove all the configuration details such as login authentication, configurations mapping etc. If you want to sync again, you will have to start the sync process from the beginning.",
+            "title": "Do you really want to unlink the integration?",
+            "type": "SIMPLE"
+        },
+        "display": "Unlink Integration",
+        "buttonLook": "MUTTED",
+        "id": "unlink",
+        "type": "POP_UP"
+    },
+    "syncErrors": [
+        {
+            "card": {
+                "heading": "No errors found",
+                "icon": "WARNING",
+                "type": "ACTION"
+            },
+            "id": "sync_errors",
+            "isCardDone": "false"
+        }
+    ]
 }
