@@ -1,0 +1,1394 @@
+{
+    "cards": [
+        {
+            "id": "check11",
+            "card": {
+                "heading": "Sync Rules for Contacts",
+                "contents": [
+                    "Configure how customer data is synced from Chargebee to HubSpot. Set rules to manage 'Contacts' in HubSpot from Chargebee. <a href='https://www.chargebee.com/docs/hubspot.html' target='blank'>Learn more</a>"
+                ],
+                "type": "EMPTY_BACKGROUND"
+            },
+            "isCardDone": "true"
+        },
+        {
+            "id": "check1",
+            "card": {
+                "type": "INPUT",
+                "params": [
+                    {
+                        "allowedValues": {
+                            "Customers_with_Active_subscriptions": "Customers with Active subscriptions",
+                            "All_Customers": "All Customers"
+                        },
+                        "defaultVal": "All_Customers",
+                        "id": "CustomersToSync",
+                        "type": "DROPDOWN",
+                        "dispName": "Choose customers you'd like to sync"
+                    },
+                    {
+                        "allowedValues": {
+                            "Do_nothing": "Do nothing",
+                            "Create_contact": "Create contact"
+                        },
+                        "defaultVal": "Create_contact",
+                        "id": "HubSpotContactNoMatch",
+                        "type": "DROPDOWN",
+                        "dispName": "Choose what happens when a customer in Chargebee does not have a matching contact in HubSpot",
+                        "desc": "Chargebee will match customers with contacts in HubSpot using the Email ID field. When no matching contacts are found, you can choose to create a contact in HubSpot or do nothing"
+                    },
+                    {
+                        "allowedValues": {
+                            "Override_the_fields": "Override the fields",
+                            "Update_empty_Hubspot_fields": "Update empty HubSpot fields"
+                        },
+                        "defaultVal": "Update_empty_Hubspot_fields",
+                        "id": "HubSpotContactMatch",
+                        "type": "DROPDOWN",
+                        "dispName": "Choose what happens when a customer in Chargebee has a matching contact in HubSpot. <a href='https://www.chargebee.com/docs/hubspot.html' target='blank'>Learn more</a>",
+                        "desc": "You can choose to update empty fields or override existing fields in HubSpot with customer details from Chargebee. "
+                    },
+                    {
+                        "id": "HubSpotContactMatch-id",
+                        "type": "TEXTLABEL",
+                        "dispName": "Choose the Lifecycle Stage in HubSpot you'd like to create/update the contact in, when the Chargebee customer",
+                        "req": "false"
+                    },
+                    {
+                        "allowedValues": {
+                            "other": "Other",
+                            "subscriber": "Subscriber",
+                            "evangelist": "Evangelist",
+                            "marketingqualifiedlead": "Marketing quailfied lead",
+                            "opportunity": "Opportunity",
+                            "salesqualifiedlead": "Sales qualified lead",
+                            "lead": "Lead",
+                            "customer": "Customer"
+                        },
+                        "defaultVal": "",
+                        "id": "NoSubscription",
+                        "type": "DROPDOWN",
+                        "desc": "Has no subscription",
+                        "req": "false"
+                    },
+                    {
+                        "allowedValues": {
+                            "other": "Other",
+                            "subscriber": "Subscriber",
+                            "evangelist": "Evangelist",
+                            "marketingqualifiedlead": "Marketing quailfied lead",
+                            "opportunity": "Opportunity",
+                            "salesqualifiedlead": "Sales qualified lead",
+                            "lead": "Lead",
+                            "customer": "Customer"
+                        },
+                        "defaultVal": "",
+                        "id": "TrialSubscription",
+                        "type": "DROPDOWN",
+                        "desc": "Has an In-Trial subscription",
+                        "req": "false"
+                    },
+                    {
+                        "allowedValues": {
+                            "other": "Other",
+                            "subscriber": "Subscriber",
+                            "evangelist": "Evangelist",
+                            "marketingqualifiedlead": "Marketing quailfied lead",
+                            "opportunity": "Opportunity",
+                            "salesqualifiedlead": "Sales qualified lead",
+                            "lead": "Lead",
+                            "customer": "Customer"
+                        },
+                        "defaultVal": "",
+                        "id": "ActiveSubscription",
+                        "type": "DROPDOWN",
+                        "desc": "Has an Active subscription",
+                        "req": "false"
+                    },
+                    {
+                        "allowedValues": {
+                            "other": "Other",
+                            "subscriber": "Subscriber",
+                            "evangelist": "Evangelist",
+                            "marketingqualifiedlead": "Marketing quailfied lead",
+                            "opportunity": "Opportunity",
+                            "salesqualifiedlead": "Sales qualified lead",
+                            "lead": "Lead",
+                            "customer": "Customer"
+                        },
+                        "defaultVal": "",
+                        "id": "CanceledSubscription",
+                        "type": "DROPDOWN",
+                        "desc": "Has a Cancelled subscription",
+                        "req": "false"
+                    }
+                ]
+            },
+            "isCardDone": "true"
+        },
+        {
+            "id": "check12",
+            "card": {
+                "heading": "Sync Rules for Deals",
+                "contents": [
+                    "Configure how you'd like to handle deals in HubSpot when subscription are created in Chargebee. <a href='https://www.chargebee.com/docs/hubspot.html' target='blank'>Learn more</a>"
+                ],
+                "label": {
+                    "textColour": "INFO",
+                    "icon": "INFO",
+                    "id": "label1",
+                    "type": "TEXTLABEL",
+                    "dispName": "All deals will be created or updated in the HubSpot Sales Pipeline"
+                },
+                "type": "EMPTY_BACKGROUND"
+            },
+            "isCardDone": "true"
+        },
+        {
+            "id": "testdynamic",
+            "card": {
+                "type": "DYNAMIC_INPUT",
+                "params": [
+                    {
+                        "request": {
+                            "apiEndPoint": {
+                                "headers": {
+                                    "Elements-Formula-Instance-Id": "399308"
+                                },
+                                "input": {
+                                    "type": "hubspot"
+                                },
+                                "apiUrl": "https://staging.cloud-elements.com/elements/api-v2/hubspot/dealoptions",
+                                "type": "GET"
+                            },
+                            "type": "ON_CHANGE_FETCH_INPUT"
+                        },
+                        "isDynamic": "true",
+                        "defaultVal": "Create_A_Deal",
+                        "dropDownItemsList": [
+                            {
+                                "value": "Create_A_Deal",
+                                "disp": "Create a deal"
+                            },
+                            {
+                                "helptext": "The last Created Open deal will be updated in HubSpot. <a href='https://www.chargebee.com/docs/hubspot.html' target='blank'>Learn More</a>",
+                                "value": "UpdateExistingDeal",
+                                "disp": "Update existing deal"
+                            },
+                            {
+                                "value": "DoNothing",
+                                "disp": "Do Nothing"
+                            }
+                        ],
+                        "id": "SubCreatedOption",
+                        "type": "DROPDOWN_DYNAMIC",
+                        "dispName": "When a subscription is <b>created</b> in Chargebee"
+                    },
+                    {
+                        "allowedValues": {
+                            "closedlost": "Closed Lost",
+                            "contractsent": "Contract Sent",
+                            "appointmentscheduled": "Appointment Scheduled",
+                            "presentationscheduled": "Presentation Scheduled",
+                            "decisionmakerboughtin": "Decision Maker Bought-In",
+                            "qualifiedtobuy": "Qualified To Buy",
+                            "closedwon": "Closed Won"
+                        },
+                        "defaultVal": "closedwon",
+                        "id": "stage_subCreated",
+                        "type": "DROPDOWN",
+                        "dispName": "Choose the deal stage in HubSpot you'd like to create this deal in"
+                    },
+                    {
+                        "request": {
+                            "apiEndPoint": {
+                                "headers": {
+                                    "Elements-Formula-Instance-Id": "399308"
+                                },
+                                "input": {
+                                    "from": "toggle",
+                                    "type": "hubspot"
+                                },
+                                "apiUrl": "https://staging.cloud-elements.com/elements/api-v2/hubspot/dealoptions",
+                                "type": "GET"
+                            },
+                            "type": "ON_CHANGE_FETCH_INPUT"
+                        },
+                        "defaultVal": "false",
+                        "isDynamic": "true",
+                        "id": "createDealInTrial",
+                        "type": "TOGGLE",
+                        "dispName": "Create new deals in Hubspot for subscriptions that are in trial",
+                        "req": "false"
+                    }
+                ]
+            },
+            "isCardDone": "true"
+        },
+        {
+            "id": "check14",
+            "card": {
+                "heading": "Sync Rules for Fields",
+                "contents": [
+                    "Set rules to sync fields from Chargebee to Hubspot . <a href='https://www.chargebee.com/docs/hubspot.html' target='blank'>Learn more</a>"
+                ],
+                "type": "EMPTY_BACKGROUND"
+            },
+            "isCardDone": "true"
+        },
+        {
+            "id": "check4",
+            "card": {
+                "message": {
+                    "button": {
+                        "display": "View Fields",
+                        "icon": "ARROW",
+                        "id": "viewFields",
+                        "type": "DIRECT_LINK",
+                        "url": "https://www.chargebee.com/docs/index.html",
+                        "newTab": "true"
+                    },
+                    "messageLook": "INFO",
+                    "icon": "INFO",
+                    "message": "If you need to sync additional fields from Chargebee to HubSpot, you may enable this option"
+                },
+                "type": "TOGGLE_HIDE_INPUT",
+                "params": [
+                    {
+                        "defaultVal": "true",
+                        "id": "syncMoreFields",
+                        "type": "TOGGLE",
+                        "dispName": "Sync additional fields from Chargebee to HubSpot"
+                    },
+                    {
+                        "inputFields": [
+                            {
+                                "checkboxes": [
+                                    {
+                                        "id": "subcst_currency_code",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription currency code"
+                                    },
+                                    {
+                                        "id": "subcst_plan_unit_price",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription plan unit price"
+                                    },
+                                    {
+                                        "id": "subcst_plan_amount",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription plan amount"
+                                    },
+                                    {
+                                        "id": "subcst_billing_period",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription billing period"
+                                    },
+                                    {
+                                        "id": "subcst_billing_period_unit",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription billing period unit"
+                                    },
+                                    {
+                                        "id": "subcst_plan_free_quantity",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription plan free quantity"
+                                    },
+                                    {
+                                        "id": "subcst_start_date",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription start date"
+                                    },
+                                    {
+                                        "id": "subcst_trial_start",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription trial start"
+                                    },
+                                    {
+                                        "id": "subcst_trial_end",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription trial end"
+                                    },
+                                    {
+                                        "id": "subcst_current_term_start",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription current term start"
+                                    },
+                                    {
+                                        "id": "subcst_current_term_end",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription current term end"
+                                    },
+                                    {
+                                        "id": "subcst_created_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription created at"
+                                    },
+                                    {
+                                        "id": "subcst_started_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription started at"
+                                    },
+                                    {
+                                        "id": "subcst_activated_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription activated at"
+                                    },
+                                    {
+                                        "id": "subcst_gift_id",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription gift id"
+                                    },
+                                    {
+                                        "id": "subcst_override_relationship",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription override relationship"
+                                    },
+                                    {
+                                        "id": "subcst_pause_date",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription pause date"
+                                    },
+                                    {
+                                        "id": "subcst_resume_date",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription resume date"
+                                    },
+                                    {
+                                        "id": "subcst_cancelled_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription cancelled at"
+                                    },
+                                    {
+                                        "id": "subcst_cancel_reason",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription cancel reason"
+                                    },
+                                    {
+                                        "id": "subcst_affiliate_token",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription affiliate token"
+                                    },
+                                    {
+                                        "id": "subcst_created_from_ip",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription created from ip"
+                                    },
+                                    {
+                                        "id": "subcst_resource_version",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription resource version"
+                                    },
+                                    {
+                                        "id": "subcst_updated_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription updated at"
+                                    },
+                                    {
+                                        "id": "subcst_has_scheduled_changes",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription has scheduled changes"
+                                    },
+                                    {
+                                        "id": "subcst_payment_source_id",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription payment source id"
+                                    },
+                                    {
+                                        "id": "subcst_exchange_rate",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription exchange rate"
+                                    },
+                                    {
+                                        "id": "subcst_base_currency_code",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription base currency code"
+                                    },
+                                    {
+                                        "id": "subcst_cf_opted_for_sync",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription cf opted for sync"
+                                    },
+                                    {
+                                        "id": "custcst_vat_number",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer vat number"
+                                    },
+                                    {
+                                        "id": "custcst_vat_number_validated_time",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer vat number validated time"
+                                    },
+                                    {
+                                        "id": "custcst_vat_number_status",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer vat number status"
+                                    },
+                                    {
+                                        "id": "custcst_allow_direct_debit",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer allow direct debit"
+                                    },
+                                    {
+                                        "id": "custcst_is_location_valid",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer is location valid"
+                                    },
+                                    {
+                                        "id": "custcst_created_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer created at"
+                                    },
+                                    {
+                                        "id": "custcst_created_from_ip",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer created from ip"
+                                    },
+                                    {
+                                        "id": "custcst_taxability",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer taxability"
+                                    },
+                                    {
+                                        "id": "custcst_entity_code",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer entity code"
+                                    },
+                                    {
+                                        "id": "custcst_exempt_number",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer exempt number"
+                                    },
+                                    {
+                                        "id": "custcst_resource_version",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer resource version"
+                                    },
+                                    {
+                                        "id": "custcst_updated_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer updated at"
+                                    },
+                                    {
+                                        "id": "custcst_locale",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer locale"
+                                    },
+                                    {
+                                        "id": "custcst_consolidated_invoicing",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer consolidated invoicing"
+                                    },
+                                    {
+                                        "id": "custcst_billing_date_mode",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer billing date mode"
+                                    },
+                                    {
+                                        "id": "custcst_billing_day_of_week",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer billing day of week"
+                                    },
+                                    {
+                                        "id": "custcst_billing_day_of_week_mode",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer billing day of week mode"
+                                    },
+                                    {
+                                        "id": "custcst_pii_cleared",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer pii cleared"
+                                    },
+                                    {
+                                        "id": "custcst_fraud_flag",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer fraud flag"
+                                    },
+                                    {
+                                        "id": "custcst_primary_payment_source_id",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer primary payment source id"
+                                    },
+                                    {
+                                        "id": "custcst_backup_payment_source_id",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer backup payment source id"
+                                    },
+                                    {
+                                        "id": "custcst_promotional_credits",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer promotional credits"
+                                    },
+                                    {
+                                        "id": "custcst_unbilled_charges",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer unbilled charges"
+                                    },
+                                    {
+                                        "id": "custcst_refundable_credits",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer refundable credits"
+                                    },
+                                    {
+                                        "id": "custcst_excess_payments",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer excess payments"
+                                    },
+                                    {
+                                        "id": "custcst_deleted",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer deleted"
+                                    },
+                                    {
+                                        "id": "custcst_registered_for_gst",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer registered for gst"
+                                    },
+                                    {
+                                        "id": "custcst_business_customer_without_vat_number",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer business customer without vat number"
+                                    },
+                                    {
+                                        "id": "custcst_customer_type",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer customer type"
+                                    },
+                                    {
+                                        "id": "custcst_client_profile_id",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer client profile id"
+                                    },
+                                    {
+                                        "id": "ordercst_document_number",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order document number"
+                                    },
+                                    {
+                                        "id": "ordercst_invoice_id",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order invoice id"
+                                    },
+                                    {
+                                        "id": "ordercst_cancellation_reason",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order cancellation reason"
+                                    },
+                                    {
+                                        "id": "ordercst_payment_status",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order payment status"
+                                    },
+                                    {
+                                        "id": "ordercst_order_type",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order order type"
+                                    },
+                                    {
+                                        "id": "ordercst_price_type",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order price type"
+                                    },
+                                    {
+                                        "id": "ordercst_reference_id",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order reference id"
+                                    },
+                                    {
+                                        "id": "ordercst_fulfillment_status",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order fulfillment status"
+                                    },
+                                    {
+                                        "id": "ordercst_shipping_date",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order shipping date"
+                                    },
+                                    {
+                                        "id": "ordercst_tracking_id",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order tracking id"
+                                    },
+                                    {
+                                        "id": "ordercst_batch_id",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order batch id"
+                                    },
+                                    {
+                                        "id": "ordercst_created_by",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order created by"
+                                    },
+                                    {
+                                        "id": "ordercst_shipment_carrier",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order shipment carrier"
+                                    },
+                                    {
+                                        "id": "ordercst_invoice_round_off_amount",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order invoice round off amount"
+                                    },
+                                    {
+                                        "id": "ordercst_tax",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order tax"
+                                    },
+                                    {
+                                        "id": "ordercst_amount_adjusted",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order amount adjusted"
+                                    },
+                                    {
+                                        "id": "ordercst_refundable_credits_issued",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order refundable credits issued"
+                                    },
+                                    {
+                                        "id": "ordercst_refundable_credits",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order refundable credits"
+                                    },
+                                    {
+                                        "id": "ordercst_rounding_adjustement",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order rounding adjustement"
+                                    },
+                                    {
+                                        "id": "ordercst_paid_on",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order paid on"
+                                    },
+                                    {
+                                        "id": "ordercst_shipping_cut_off_date",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order shipping cut off date"
+                                    },
+                                    {
+                                        "id": "ordercst_created_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order created at"
+                                    },
+                                    {
+                                        "id": "ordercst_status_update_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order status update at"
+                                    },
+                                    {
+                                        "id": "ordercst_delivered_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order delivered at"
+                                    },
+                                    {
+                                        "id": "ordercst_shipped_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order shipped at"
+                                    },
+                                    {
+                                        "id": "ordercst_resource_version",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order resource version"
+                                    },
+                                    {
+                                        "id": "ordercst_updated_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order updated at"
+                                    },
+                                    {
+                                        "id": "ordercst_cancelled_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order cancelled at"
+                                    },
+                                    {
+                                        "id": "ordercst_discount",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order discount"
+                                    },
+                                    {
+                                        "id": "ordercst_sub_total",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order sub total"
+                                    },
+                                    {
+                                        "id": "ordercst_total",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order total"
+                                    },
+                                    {
+                                        "id": "ordercst_deleted",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order deleted"
+                                    },
+                                    {
+                                        "id": "ordercst_currency_code",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order currency code"
+                                    },
+                                    {
+                                        "id": "ordercst_is_gifted",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order is gifted"
+                                    },
+                                    {
+                                        "id": "ordercst_gift_id",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order gift id"
+                                    }
+                                ],
+                                "id": "dealFields",
+                                "type": "SEARCH_CHECK_BOX"
+                            }
+                        ],
+                        "helptext": "Choose the fields you'd like to sync",
+                        "id": "deal",
+                        "type": "MODELBOX_INPUT_FIELDS",
+                        "dispName": "Deal"
+                    },
+                    {
+                        "inputFields": [
+                            {
+                                "checkboxes": [
+                                    {
+                                        "id": "subcst_currency_code",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription currency code"
+                                    },
+                                    {
+                                        "id": "subcst_plan_unit_price",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription plan unit price"
+                                    },
+                                    {
+                                        "id": "subcst_plan_amount",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription plan amount"
+                                    },
+                                    {
+                                        "id": "subcst_billing_period",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription billing period"
+                                    },
+                                    {
+                                        "id": "subcst_billing_period_unit",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription billing period unit"
+                                    },
+                                    {
+                                        "id": "subcst_plan_free_quantity",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription plan free quantity"
+                                    },
+                                    {
+                                        "id": "subcst_start_date",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription start date"
+                                    },
+                                    {
+                                        "id": "subcst_trial_start",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription trial start"
+                                    },
+                                    {
+                                        "id": "subcst_trial_end",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription trial end"
+                                    },
+                                    {
+                                        "id": "subcst_current_term_start",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription current term start"
+                                    },
+                                    {
+                                        "id": "subcst_current_term_end",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription current term end"
+                                    },
+                                    {
+                                        "id": "subcst_created_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription created at"
+                                    },
+                                    {
+                                        "id": "subcst_started_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription started at"
+                                    },
+                                    {
+                                        "id": "subcst_activated_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription activated at"
+                                    },
+                                    {
+                                        "id": "subcst_gift_id",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription gift id"
+                                    },
+                                    {
+                                        "id": "subcst_override_relationship",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription override relationship"
+                                    },
+                                    {
+                                        "id": "subcst_pause_date",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription pause date"
+                                    },
+                                    {
+                                        "id": "subcst_resume_date",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription resume date"
+                                    },
+                                    {
+                                        "id": "subcst_cancelled_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription cancelled at"
+                                    },
+                                    {
+                                        "id": "subcst_cancel_reason",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription cancel reason"
+                                    },
+                                    {
+                                        "id": "subcst_affiliate_token",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription affiliate token"
+                                    },
+                                    {
+                                        "id": "subcst_created_from_ip",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription created from ip"
+                                    },
+                                    {
+                                        "id": "subcst_resource_version",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription resource version"
+                                    },
+                                    {
+                                        "id": "subcst_updated_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription updated at"
+                                    },
+                                    {
+                                        "id": "subcst_has_scheduled_changes",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription has scheduled changes"
+                                    },
+                                    {
+                                        "id": "subcst_payment_source_id",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription payment source id"
+                                    },
+                                    {
+                                        "id": "subcst_exchange_rate",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription exchange rate"
+                                    },
+                                    {
+                                        "id": "subcst_base_currency_code",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription base currency code"
+                                    },
+                                    {
+                                        "id": "subcst_cf_opted_for_sync",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription cf opted for sync"
+                                    },
+                                    {
+                                        "id": "custcst_vat_number",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer vat number"
+                                    },
+                                    {
+                                        "id": "custcst_vat_number_validated_time",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer vat number validated time"
+                                    },
+                                    {
+                                        "id": "custcst_vat_number_status",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer vat number status"
+                                    },
+                                    {
+                                        "id": "custcst_allow_direct_debit",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer allow direct debit"
+                                    },
+                                    {
+                                        "id": "custcst_is_location_valid",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer is location valid"
+                                    },
+                                    {
+                                        "id": "custcst_created_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer created at"
+                                    },
+                                    {
+                                        "id": "custcst_created_from_ip",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer created from ip"
+                                    },
+                                    {
+                                        "id": "custcst_taxability",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer taxability"
+                                    },
+                                    {
+                                        "id": "custcst_entity_code",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer entity code"
+                                    },
+                                    {
+                                        "id": "custcst_exempt_number",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer exempt number"
+                                    },
+                                    {
+                                        "id": "custcst_resource_version",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer resource version"
+                                    },
+                                    {
+                                        "id": "custcst_updated_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer updated at"
+                                    },
+                                    {
+                                        "id": "custcst_locale",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer locale"
+                                    },
+                                    {
+                                        "id": "custcst_consolidated_invoicing",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer consolidated invoicing"
+                                    },
+                                    {
+                                        "id": "custcst_billing_date_mode",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer billing date mode"
+                                    },
+                                    {
+                                        "id": "custcst_billing_day_of_week",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer billing day of week"
+                                    },
+                                    {
+                                        "id": "custcst_billing_day_of_week_mode",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer billing day of week mode"
+                                    },
+                                    {
+                                        "id": "custcst_pii_cleared",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer pii cleared"
+                                    },
+                                    {
+                                        "id": "custcst_fraud_flag",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer fraud flag"
+                                    },
+                                    {
+                                        "id": "custcst_primary_payment_source_id",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer primary payment source id"
+                                    },
+                                    {
+                                        "id": "custcst_backup_payment_source_id",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer backup payment source id"
+                                    },
+                                    {
+                                        "id": "custcst_promotional_credits",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer promotional credits"
+                                    },
+                                    {
+                                        "id": "custcst_unbilled_charges",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer unbilled charges"
+                                    },
+                                    {
+                                        "id": "custcst_refundable_credits",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer refundable credits"
+                                    },
+                                    {
+                                        "id": "custcst_excess_payments",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer excess payments"
+                                    },
+                                    {
+                                        "id": "custcst_deleted",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer deleted"
+                                    },
+                                    {
+                                        "id": "custcst_registered_for_gst",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer registered for gst"
+                                    },
+                                    {
+                                        "id": "custcst_business_customer_without_vat_number",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer business customer without vat number"
+                                    },
+                                    {
+                                        "id": "custcst_customer_type",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer customer type"
+                                    },
+                                    {
+                                        "id": "custcst_client_profile_id",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer client profile id"
+                                    },
+                                    {
+                                        "id": "ordercst_document_number",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order document number"
+                                    },
+                                    {
+                                        "id": "ordercst_invoice_id",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order invoice id"
+                                    },
+                                    {
+                                        "id": "ordercst_cancellation_reason",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order cancellation reason"
+                                    },
+                                    {
+                                        "id": "ordercst_payment_status",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order payment status"
+                                    },
+                                    {
+                                        "id": "ordercst_order_type",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order order type"
+                                    },
+                                    {
+                                        "id": "ordercst_price_type",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order price type"
+                                    },
+                                    {
+                                        "id": "ordercst_reference_id",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order reference id"
+                                    },
+                                    {
+                                        "id": "ordercst_fulfillment_status",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order fulfillment status"
+                                    },
+                                    {
+                                        "id": "ordercst_shipping_date",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order shipping date"
+                                    },
+                                    {
+                                        "id": "ordercst_tracking_id",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order tracking id"
+                                    },
+                                    {
+                                        "id": "ordercst_batch_id",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order batch id"
+                                    },
+                                    {
+                                        "id": "ordercst_created_by",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order created by"
+                                    },
+                                    {
+                                        "id": "ordercst_shipment_carrier",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order shipment carrier"
+                                    },
+                                    {
+                                        "id": "ordercst_invoice_round_off_amount",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order invoice round off amount"
+                                    },
+                                    {
+                                        "id": "ordercst_tax",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order tax"
+                                    },
+                                    {
+                                        "id": "ordercst_amount_adjusted",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order amount adjusted"
+                                    },
+                                    {
+                                        "id": "ordercst_refundable_credits_issued",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order refundable credits issued"
+                                    },
+                                    {
+                                        "id": "ordercst_refundable_credits",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order refundable credits"
+                                    },
+                                    {
+                                        "id": "ordercst_rounding_adjustement",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order rounding adjustement"
+                                    },
+                                    {
+                                        "id": "ordercst_paid_on",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order paid on"
+                                    },
+                                    {
+                                        "id": "ordercst_shipping_cut_off_date",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order shipping cut off date"
+                                    },
+                                    {
+                                        "id": "ordercst_created_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order created at"
+                                    },
+                                    {
+                                        "id": "ordercst_status_update_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order status update at"
+                                    },
+                                    {
+                                        "id": "ordercst_delivered_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order delivered at"
+                                    },
+                                    {
+                                        "id": "ordercst_shipped_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order shipped at"
+                                    },
+                                    {
+                                        "id": "ordercst_resource_version",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order resource version"
+                                    },
+                                    {
+                                        "id": "ordercst_updated_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order updated at"
+                                    },
+                                    {
+                                        "id": "ordercst_cancelled_at",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order cancelled at"
+                                    },
+                                    {
+                                        "id": "ordercst_discount",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order discount"
+                                    },
+                                    {
+                                        "id": "ordercst_sub_total",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order sub total"
+                                    },
+                                    {
+                                        "id": "ordercst_total",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order total"
+                                    },
+                                    {
+                                        "id": "ordercst_deleted",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order deleted"
+                                    },
+                                    {
+                                        "id": "ordercst_currency_code",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order currency code"
+                                    },
+                                    {
+                                        "id": "ordercst_is_gifted",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order is gifted"
+                                    },
+                                    {
+                                        "id": "ordercst_gift_id",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order gift id"
+                                    }
+                                ],
+                                "id": "contactFields",
+                                "type": "SEARCH_CHECK_BOX"
+                            }
+                        ],
+                        "id": "contact",
+                        "type": "MODELBOX_INPUT_FIELDS",
+                        "dispName": "Contact"
+                    },
+                    {
+                        "inputFields": [
+                            {
+                                "checkboxes": [
+                                    {
+                                        "id": "subcst_plan_quantity",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription plan quantity"
+                                    },
+                                    {
+                                        "id": "subcst_plan_unit_price",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription plan unit price"
+                                    },
+                                    {
+                                        "id": "subcst_plan_amount",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription plan amount"
+                                    },
+                                    {
+                                        "id": "subcst_plan_free_quantity",
+                                        "type": "CHECKBOX",
+                                        "desc": "Subscription plan free quantity"
+                                    },
+                                    {
+                                        "id": "custcst_promotional_credits",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer promotional credits"
+                                    },
+                                    {
+                                        "id": "custcst_unbilled_charges",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer unbilled charges"
+                                    },
+                                    {
+                                        "id": "custcst_refundable_credits",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer refundable credits"
+                                    },
+                                    {
+                                        "id": "custcst_excess_payments",
+                                        "type": "CHECKBOX",
+                                        "desc": "Customer excess payments"
+                                    },
+                                    {
+                                        "id": "ordercst_invoice_round_off_amount",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order invoice round off amount"
+                                    },
+                                    {
+                                        "defaultVal": "on",
+                                        "id": "ordercst_tax",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order tax"
+                                    },
+                                    {
+                                        "id": "ordercst_amount_adjusted",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order amount adjusted"
+                                    },
+                                    {
+                                        "id": "ordercst_refundable_credits_issued",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order refundable credits issued"
+                                    },
+                                    {
+                                        "id": "ordercst_refundable_credits",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order refundable credits"
+                                    },
+                                    {
+                                        "id": "ordercst_rounding_adjustement",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order rounding adjustement"
+                                    },
+                                    {
+                                        "id": "ordercst_discount",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order discount"
+                                    },
+                                    {
+                                        "id": "ordercst_sub_total",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order sub total"
+                                    },
+                                    {
+                                        "id": "ordercst_total",
+                                        "type": "CHECKBOX",
+                                        "desc": "Order total"
+                                    }
+                                ],
+                                "id": "companyFields",
+                                "type": "SEARCH_CHECK_BOX"
+                            }
+                        ],
+                        "id": "company",
+                        "type": "MODELBOX_INPUT_FIELDS",
+                        "dispName": "Company"
+                    }
+                ]
+            },
+            "isCardDone": "true"
+        },
+        {
+            "id": "check15",
+            "card": {
+                "heading": "Sync Rules for Orders",
+                "contents": [
+                    "Set rules to sync orders from Chargebee to Hubspot. <a href='https://www.chargebee.com/docs/hubspot.html' target='blank'>Learn more</a>"
+                ],
+                "type": "EMPTY_BACKGROUND"
+            },
+            "isCardDone": "true"
+        },
+        {
+            "id": "check4",
+            "card": {
+                "message": {
+                    "button": {
+                        "display": "Learn more",
+                        "icon": "ARROW",
+                        "id": "viewFields",
+                        "type": "DIRECT_LINK",
+                        "url": "https://www.chargebee.com/docs/index.html",
+                        "newTab": "true"
+                    },
+                    "messageLook": "INFO",
+                    "icon": "INFO",
+                    "message": "Chargebee will sync your orders and related details like last order date, next order date and so on"
+                },
+                "type": "TOGGLE_HIDE_INPUT",
+                "params": [
+                    {
+                        "defaultVal": "false",
+                        "id": "syncOrders",
+                        "type": "TOGGLE",
+                        "dispName": "Allow Chargebee to sync orders to HubSpot"
+                    }
+                ]
+            },
+            "isCardDone": "true"
+        }
+    ],
+    "save": {
+        "request": {
+            "type": "ON_CLICK_SEND_INPUT",
+            "apiEndPoint": {
+                "headers": {
+                    "Elements-Formula-Instance-Id": "399325"
+                },
+                "input": {
+                    "id": "chargebee"
+                },
+                "apiUrl": "https://staging.cloud-elements.com/elements/api-v2/hubspot/saveconfig",
+                "type": "GET"
+            }
+        },
+        "display": "Save",
+        "icon": "ARROW",
+        "buttonLook": "FILLED",
+        "id": "save",
+        "type": "DIRECT_LINK"
+    },
+    "dismissText": "Dismiss"
+}
