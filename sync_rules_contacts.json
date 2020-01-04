@@ -1,113 +1,166 @@
+{"cards":
+[
+  {
+    "card": {
+      "type": "EMPTY_BACKGROUND",
+      "heading": "Sync Rules for Contacts",
+      "contents": [
+        "Configure how customer data is synced from Chargebee to HubSpot. Set rules to manage 'Contacts' in HubSpot from Chargebee. <a href='https://www.chargebee.com/docs/hubspot.html' target='blank'>Learn more</a>"
+      ]
+    },
+    "isCardDone": true,
+    "id": "check2"
+  },
+  {
+    "card": {
+      "type": "INPUT",
+      "params": [
+        {
+          "dispName": "Choose customers you'd like to sync",
+          "req": "true",
+          "type": "DROPDOWN",
+          "id": "CustomersToSync",
+          "allowedValues": {
+            "All_Customers": "All Customers",
+            "Customers_with_Active_subscriptions": "Customers with Active subscriptions"
+          },
+          "defaultVal": "All_Customers"
+        },
+        {
+          "dispName": "Choose what happens when a customer in Chargebee does not have a matching contact in HubSpot",
+          "req": "true",
+          "type": "DROPDOWN",
+          "id": "HubSpotContactNoMatch",
+          "desc": "Chargebee will match customers with contacts in HubSpot using the Email ID field. When no matching contacts are found, you can choose to create a contact in HubSpot or do nothing",
+          "allowedValues": {
+            "Create_contact": "Create contact",
+            "Do_nothing": "Do nothing"
+          },
+          "defaultVal": "Create_contact"
+        },
+        {
+          "dispName": "Choose what happens when a customer in Chargebee has a matching contact in HubSpot.<a href='https://www.chargebee.com/docs/hubspot.html' target='blank'>Learn more</a>",
+          "req": "true",
+          "type": "DROPDOWN",
+          "id": "HubSpotContactMatch",
+          "desc": "You can choose to update empty fields or override existing fields in HubSpot with customer details from Chargebee. ",
+          "allowedValues": {
+            "Update_empty_Hubspot_fields": "Update empty HubSpot fields",
+            "Override_the_fields": "Override the fields"
+          },
+          "defaultVal": "Update_empty_Hubspot_fields"
+        },
+        {
+          "dispName": "Choose the Lifecycle Stage in HubSpot you'd like to create/update the contact in, when the Chargebee customer",
+          "req": "false",
+          "type": "TEXTLABEL",
+          "id": "HubSpotContactMatch-id"
+        },
+        {
+          "dispName": "<p style=\"padding-left: 10px;\">  Has no subscription",
+          "req": "false",
+          "type": "DROPDOWN",
+          "id": "NoSubscription",
+          "isMuted": "true",
+          "allowedValues": {
+            "select": "Select",
+            "subscriber": "Subscriber",
+            "lead": "Lead",
+            "marketingqualifiedlead": "Marketing Qualified lead",
+            "salesqualifiedlead": "Sales Qualified lead",
+            "opportunity": "Opportunity",
+            "customer": "Customer",
+            "evangelist": "Evangelist",
+            "other": "Other"
+          },
+          "defaultVal": "select"
+        },
+        {
+          "dispName": "<p style=\"padding-left: 10px;\"> Has an In-Trial subscription",
+          "req": "false",
+          "type": "DROPDOWN",
+          "id": "TrialSubscription",
+          "isMuted": "true",
+          "allowedValues": {
+            "select": "Select",
+            "subscriber": "Subscriber",
+            "lead": "Lead",
+            "marketingqualifiedlead": "Marketing Qualified Lead",
+            "salesqualifiedlead": "Sales Qualified lead",
+            "opportunity": "Opportunity",
+            "customer": "Customer",
+            "evangelist": "Evangelist",
+            "other": "Other"
+          },
+          "defaultVal": "select"
+        },
+        {
+          "dispName": "<p style=\"padding-left: 10px;\"> Has an Active subscription",
+          "req": "false",
+          "type": "DROPDOWN",
+          "id": "ActiveSubscription",
+          "isMuted": "true",
+          "allowedValues": {
+            "select": "Select",
+            "subscriber": "Subscriber",
+            "lead": "Lead",
+            "marketingqualifiedlead": "Marketing Qualified lead",
+            "salesqualifiedlead": "Sales Qualified lead",
+            "opportunity": "Opportunity",
+            "customer": "Customer",
+            "evangelist": "Evangelist",
+            "other": "Other"
+          },
+          "defaultVal": "select"
+        },
+        {
+          "dispName": "<p style=\"padding-left: 10px;\"> Has a Cancelled subscription",
+          "req": "false",
+          "type": "DROPDOWN",
+          "id": "CanceledSubscription",
+          "isMuted": "true",
+          "allowedValues": {
+            "select": "Select",
+            "subscriber": "Subscriber",
+            "lead": "Lead",
+            "marketingqualifiedlead": "Marketing Qualified lead",
+            "salesqualifiedlead": "Sales Qualified lead",
+            "opportunity": "Opportunity",
+            "customer": "Customer",
+            "evangelist": "Evangelist",
+            "other": "Other"
+          },
+          "defaultVal": "select"
+        }
+      ]
+    },
+    "id": "check1",
+    "isCardDone": true
+  }
+]
+,
+
+"proceed":
 {
-   "cards" : [
-      {
-         "card": {
-            "type" : "INPUT",
-            "params": [
-            	{  
-			         "dispName":"Choose customers you'd like to sync",
-			         "req":"true",
-			         "type":"DROPDOWN",
-			         "id":"dropdown1",
-			         "allowedValues":{
-			            "option1":"Sync All Customers",
-			            "option2":"Test 1"
-			         }
-			    }
-            ]
-         },
-         "id" : "check1"
+  "buttonLook": "FILLED",
+  "display": "Proceed",
+  "icon": "ARROW",
+  "id": "proceed",
+  "request": {
+    "apiEndPoint": {
+      "apiUrl": "https://staging.cloud-elements.com/elements/api-v2/hubspot/saveconfig",
+      "headers": {
+        "Elements-Formula-Instance-Id": "411947"
       },
-      {
-         "card": {
-            "type" : "INPUT",
-            "params": [
-               {       
-               "dispName":"Allow Chargebee to create People in Pipedrive",
-                     "desc":"By default, existing people, if any, will be updated with the changes made in Chargebee. Disable if you dont want chargebee to create People in Pipedrive",
-                 "req":"true",
-                 "type":"TOGGLE",
-                 "id":"toggle1"
-              }
-            ]
-         },
-         "id" : "check2"
+      "input": {
+        "id": "chargebee",
+        "integrationName": "hubspot",
+        "siteDomain": "predev3.in"
       },
-      {
-         "card": {
-            "type" : "TOGGLE_HIDE_INPUT",
-            "params": [
-               {       
-                  "dispName":"Allow Chargebee to manage Organization in Pipedrive",
-                  "desc":"By default, Chargebee customers will be synced as People in Pipedrive. Enable if you want to allow Chargebee to add people to Organization, and create and update Organizations in Pipedrive.",
-                  "req":"true",
-                  "type":"TOGGLE",
-                  "id":"toggle2"
-               },
-               {  
-                  "dispName":"Choose what you'd like to do when a customer is synced to Pipedrive",
-                 "req":"true",
-                 "type":"DROPDOWN",
-                 "id":"dropdown2",
-                 "allowedValues":{
-                    "option1":"Group using 'Organization' name",
-                    "option2":"Do Nothing"
-                 },
-                  "defaultVal":"option2"
-               },
-               {       
-                  "dispName":"Sync Account Hierarchies from Chargebee to Pipedrive",
-                  "desc":"By default, Chargebee customers will be synced as People in Pipedrive. Enable if you want to allow Chargebee to add people to Organization, and create and update Organizations in Pipedrive.",
-                  "req":"true",
-                  "type":"TOGGLE",
-                  "id":"toggle3"
-               },
-          
-            ]
-         },
-         "id" : "check3"
-      },
-      {
-         "card": {
-            "type" : "INPUT",
-            "params": [
-               {  
-                  "dispName":"When a customer is deleted in Chargebee",
-                 "req":"true",
-                 "type":"DROPDOWN",
-                 "id":"dropdown3",
-                 "allowedValues":{
-                    "option1":"Do Nothing",
-                    "option2":"Mark 'Person'as 'Deleted'",
-                    "option3":"Mark 'Person' and 'Organization' as 'Deleted'"
-                 },
-                  "defaultVal":"option1"
-               }
-          
-            ]
-         },
-         "id" : "check4"
-      }
-    ],
-   "proceed":{
-      	"id":"proceed",
-      	"display" : "Proceed",
-      	"icon" : "ARROW",
-      	"buttonLook":"FILLED",
-      	"type" : "DIRECT_LINK",
-      	"request":{
-     		"type":"ON_CLICK_SEND_INPUT",
-     		"apiEndPoint":{
-            	"apiUrl":"https://raw.githubusercontent.com/shamim-keyvalue/ipass_pipedrive/master/connect_resp.json",
-            	"type":"GET",
-            	"headers":{
-               		"Authorization":"sfsfsdffadssd",
-               		"Elements-Formula-Instance-Id":"sfsfsdafsd"
-            	},
-            	"input":{
-               		"id":"chargebee"
-            	}
-         	}
-      	}
-    }
+      "type": "GET"
+    },
+    "type": "ON_CLICK_SEND_INPUT"
+  },
+  "type": "DIRECT_LINK"
+}
 }
