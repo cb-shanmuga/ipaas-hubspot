@@ -4,7 +4,7 @@
   "subStepList": [
     {
       "apiEndPoint": {
-        "apiUrl": "https://staging.cloud-elements.com/elements/api-v2/hubspot/connect",
+        "apiUrl": "https://raw.githubusercontent.com/cb-shanmugar/ipaas-hubspot/master/connect.json",
         "headers": {
           "Elements-Formula-Instance-Id": "411912"
         },
